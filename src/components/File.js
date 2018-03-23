@@ -20,9 +20,21 @@ export default class File extends React.Component{
         cl= cl.split(",");
         res.push(cl);
       }
-      //turn into JSON object(s)
-      //add_data() to push data to store
-    });
+      //addData("hoi");
+
+      /*
+      //Turn it to Json
+      for(let i=0;i<res.length;i++){
+        var obj = {  res[i][2]: { "firstName"   :res[i][0],
+                                  "lastName"    :res[i][1],
+                                  "company"     :res[i][3],
+                                  "position"    :res[i][4],
+                                  "connectedOn" :res[i][5],
+                                  "Tags"        :res[i][6]}
+                  }
+        this.props.add_data(obj);
+      }*/
+    })("", this.props.add_data);
     }
 
   fileToText = (file) => {
