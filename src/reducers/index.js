@@ -4,8 +4,6 @@ import { routerReducer } from 'react-router-redux';
 const rootReducer = combineReducers({files, routing: routerReducer });
 
 function files(state=[], action){
-console.log(action.payload);
-console.log("dkvn");
 
   switch(action.type){
     case 'ADD_DATA':
