@@ -7,9 +7,17 @@ export default class File extends React.Component{
       const file = evt.target.files[0];
       const reader = new FileReader(); 
 
-      reader.onload = function(evt) {
+      // We do have access to this.helloWorld() outside render.onload, but in order to have access to it from
+      // render.onload I had to implement a closure, you can read a little bit more about them
+      // here : https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures
+
+      // Wrapping onload anonnymous function within another function
+      reader.onload = (function (file, hello) {
+        return function (evt) {
         const lines = evt.target.result.split("\n");
         const headers = lines[0].split(",");
+
+        hello();
 
         for(let i=1; i<lines.length;i++){
           let cl = lines[i];
@@ -27,17 +35,19 @@ export default class File extends React.Component{
           //  }
               obj[headers[j]] = cl[j];
           }
-          this.helloWorld;
         }
-      };
+      }
+    })(file, this.helloWorld); // <- This is where the magic happens
+
     reader.readAsText(file);
 
     } else {
       document.getElementById('errorMessage').removeAttribute("hidden");
     }
+
   }
 
-  helloWorld = ()=> {
+  helloWorld = () => {
     console.log("helloWorld");
   }
 
