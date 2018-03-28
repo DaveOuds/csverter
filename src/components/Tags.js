@@ -6,7 +6,10 @@ export default class Tags extends React.Component{
       <ul className="tags">
         {this.props.tags.map((tag, i)=> {
           return (
-            <li className='tag' key={i}>{tag.tag}</li>
+            <li className='tag' key={i}>
+              {tag}
+              <button className="remove-tag" onClick={() => this.props.remove_tag(i)}> delete</button>
+            </li>
           )
         })}
       </ul>

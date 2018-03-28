@@ -7,7 +7,6 @@ export function add_data(cl){
       company     : cl[3],
       position    : cl[4].replace(/"/g,""),
       connectedOn : cl[5].replace(/"/g,""),
-      tags        : cl[6]
   }
 
   return{
@@ -24,8 +23,9 @@ export function add_tag(tag, key){
     }
 }
 
-export function remove_tag(key){
+export function remove_tag(i){
   return{
-    type: "REMOVE_TAG"
+    type: "REMOVE_TAG",
+    i
   }
 }

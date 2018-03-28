@@ -10,6 +10,13 @@ export default class Profiles extends React.Component{
     };
   }
 
+  printProf(){
+    _.map(this.props.profiles,(profile) => {
+      console.log(profile)
+      console.log(profile.state)
+    })
+}
+
   renderProfiles(){
     const sorted = _.sortBy(this.props.profiles, 'firstName')
 
@@ -44,7 +51,6 @@ export default class Profiles extends React.Component{
             <option value="lastName">Last name</option>
             <option value="email">Email address</option>
             <option value="firstName">First name</option>
-            <option value="tags">Tags</option>
             <option value="company">Company</option>
             <option value="position">Position</option>
             <option value="connectedOn">Connected on</option>
@@ -56,6 +62,7 @@ export default class Profiles extends React.Component{
         <div className='profiles'>
           {this.renderProfiles()}
         </div>
+        {this.printProf()}
       </div>
     )
   }

@@ -19,8 +19,7 @@ export default class Upload extends React.Component{
             }
 
             line= line.split(",");
-
-            if(line.length === 7) action(line);
+            if(line.length === 6) action(line);
           });
         }
       })(this.callAction);
