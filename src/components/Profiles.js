@@ -10,13 +10,6 @@ export default class Profiles extends React.Component{
     };
   }
 
-  printProf(){
-    _.map(this.props.profiles,(profile) => {
-      console.log(profile)
-      console.log(profile.state)
-    })
-}
-
   renderProfiles(){
     const sorted = _.sortBy(this.props.profiles, 'firstName')
 
@@ -43,32 +36,10 @@ export default class Profiles extends React.Component{
   render() {
     return (
       <div className="profiles-page">
-        <div className='filter-buttons'>
-          <button id='sortButton' onClick={() => this.sortData()}>{this.state.order ==='descending' ? 'Sort AZ' : 'Sort ZA'}</button>
-
-          <select>
-            <option value="firstName">First name</option>
-            <option value="lastName">Last name</option>
-            <option value="email">Email address</option>
-            <option value="firstName">First name</option>
-            <option value="company">Company</option>
-            <option value="position">Position</option>
-            <option value="connectedOn">Connected on</option>
-          </select>
-
-          <input placeholder='Search...'type="text" ref="searchBar" onChange={(evt) => this.handleFiltSort(evt)}/>
-        </div>
-
         <div className='profiles'>
           {this.renderProfiles()}
         </div>
-        {this.printProf()}
       </div>
     )
-  }
-
-  handleFiltSort(event){
-    console.log(event)
-    console.log(this.refs.sefi.value)
   }
 }
