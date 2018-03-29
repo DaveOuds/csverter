@@ -1,44 +1,41 @@
-import React from 'react';
+import React from 'react'
 
 export default class Tags extends React.Component{
-  renderTags(){
+  render(){
     return(
-      <ul className="tags">
-        {this.props.tags.map((tag, i)=> {
-          return (
-            <li className='tag' key={i}>
-              {tag}
-              <button className="remove-tag" onClick={() => this.props.remove_tag(i)}> delete</button>
-            </li>
-          )
-        })}
-      </ul>
-    )
-  }
+      <div className="profile-tags">
+        <h2>Tags</h2>
+        <ul className="selected-tags">
+          {this.props.tags.map((tag, i) => {
+            return(
+              <li className='tag' key={i}>{tag}</li>
+            )
+          })}
+        </ul>
 
-  handleSubmit(event){
-    event.preventDefault();
-    this.props.add_tag(this.refs.tag.value);
-    this.refs.tagForm.reset();
- }
-
-  render() {
-    return(
-      <div className='tags'>
-        <div className='existing-tags'>
-          <h2>These are the excisting tags</h2>
-          {this.renderTags()}
-        </div>
-
-        <div className='create-Tags'>
-          <h2>create your tags</h2>
-          <form ref='tagForm' onSubmit={(evt) => this.handleSubmit(evt)}>
-            <input type="text" ref="tag" placeholder="tag"/>
-            <input type="submit" hidden/>
-          </form>
-
+        <div className="available-tags">
+          {this.props.tags.map((tag, i)=> {
+            return (
+              <div className="tag" key={i}>
+                <input type="checkbox" name="checkbox" id={i} value="value" onChange={(evt) => this.handleInputChange(evt)}/>
+                <label htmlFor="checkbox_{i}">{tag}</label>
+              </div>
+            )
+          })}
         </div>
       </div>
     )
+  }
+
+  handleInputChange(evt){
+    if(evt.target.checked){
+      let tagArray = this.state.tags;
+      tagArray.push(this.props.tags[evt.target.id]);
+      this.setState({tags: tagArray});
+    } else {
+      let tagArray= this.state.tags;
+      tagArray.splice(evt.target.id, 1)
+      this.setState({tags: tagArray});
+    }
   }
 }

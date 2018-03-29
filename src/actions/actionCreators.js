@@ -1,4 +1,3 @@
-//add data to defaultState
 export function add_data(cl){
   const obj = {
       firstName   : cl[0],
@@ -7,11 +6,20 @@ export function add_data(cl){
       company     : cl[3],
       position    : cl[4].replace(/"/g,""),
       connectedOn : cl[5].replace(/"/g,""),
+      notes :[],
+      tags :[]
   }
 
   return{
     type: "ADD_DATA",
     payload: obj
+  }
+}
+
+export function add_note(profile){
+  return{
+    type: "ADD_NOTE",
+    profile
   }
 }
 

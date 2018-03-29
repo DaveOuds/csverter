@@ -6,7 +6,7 @@ import { render} from 'react-dom';
 import Profiles from './components/Profiles'
 import App from './components/App'
 import Upload from './components/Upload'
-import Tags from './components/Tags'
+import TagManager from './components/TagManager'
 //import react router deps
 import { Router, Route, IndexRoute} from 'react-router';
 import { Provider } from 'react-redux';
@@ -18,7 +18,7 @@ const router = (
       <Route path='/' component={App}>
         <IndexRoute component={Upload}></IndexRoute>
         <Route path="/profiles" component={Profiles}></Route>
-        <Route path="/tags" component={Tags}></Route>
+        <Route path="/tags-manager" component={TagManager}></Route>
       </Route>
     </Router>
   </Provider>
