@@ -5,20 +5,26 @@ export default class Tags extends React.Component{
     return(
       <div className="profile-tags">
         <h2>Tags</h2>
-        <ul className="selected-tags">
-          {this.props.tags.map((tag, i) => {
-            return(
-              <li className='tag' key={i}>{tag}</li>
-            )
-          })}
-        </ul>
+
+        <h3>Selected Tags</h3>
+        <div  className="selected-tags">
+          <ul id='selected-tags-list'>
+            {this.props.profileTags.map((tag, i) => {
+              return(
+                <li className='tag' key={i}>{tag}</li>
+              )
+            })}
+          </ul>
+        </div>
 
         <div className="available-tags">
+          <h3>Available Tags</h3>
+
           {this.props.tags.map((tag, i)=> {
             return (
               <div className="tag" key={i}>
-                <input type="checkbox" name="checkbox" id={i} value="value" onChange={(evt) => this.handleInputChange(evt)}/>
-                <label htmlFor="checkbox_{i}">{tag}</label>
+                <input type="checkbox" name="checkbox" id={i} value={tag} onChange={(evt) => this.handleInputChange(evt)}/>
+                <label>{tag}</label>
               </div>
             )
           })}
@@ -28,14 +34,13 @@ export default class Tags extends React.Component{
   }
 
   handleInputChange(evt){
+    var profile = this.props.profile;
     if(evt.target.checked){
-      let tagArray = this.state.tags;
-      tagArray.push(this.props.tags[evt.target.id]);
-      this.setState({tags: tagArray});
+      profile.tags.push(evt.target.value);
+      this.props.add_tag(profile)
     } else {
-      let tagArray= this.state.tags;
-      tagArray.splice(evt.target.id, 1)
-      this.setState({tags: tagArray});
+      profile.tags.splice(profile.tags.indexOf(evt.target.value), 1);
+      this.props.remove_tag(profile)
     }
   }
 }

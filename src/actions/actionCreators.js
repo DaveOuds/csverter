@@ -16,6 +16,7 @@ export function add_data(cl){
   }
 }
 
+//Profile actions
 export function add_note(profile){
   return{
     type: "ADD_NOTE",
@@ -23,17 +24,32 @@ export function add_note(profile){
   }
 }
 
-export function add_tag(tag, key){
+export function add_tag(profile){
+  return{
+    type: "ADD_TAG",
+    profile
+  }
+}
+export function remove_tag(profile){
+  return{
+    type: "REMOVE_TAG",
+    profile
+  }
+}
+
+//Tags actions
+
+export function create_tag(tag, key){
     return{
-      type: "ADD_TAG",
+      type: "CREATE_TAG",
       tag,
       key
     }
 }
 
-export function remove_tag(i){
+export function delete_tag(i){
   return{
-    type: "REMOVE_TAG",
+    type: "DELETE_TAG",
     i
   }
 }

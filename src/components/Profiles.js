@@ -15,7 +15,7 @@ export default class Profiles extends React.Component{
 
     switch(this.state.order){
       case 'descending':
-        return _.map(sorted,(profile, i) =><Profile {...this.props} key={i} i={i} profile = {profile} />).reverse()
+        return _.map(sorted,(profile, tags,  i) =><Profile {...this.props} key={i} i={i} profile = {profile} />).reverse()
       default:
         return _.map(sorted,(profile, i) =><Profile {...this.props} key={i} i={i} profile = {profile} />)
     }
@@ -35,6 +35,7 @@ export default class Profiles extends React.Component{
 
   render() {
     return (
+
       <div className="profiles-page">
         <div className='profiles'>
           {this.renderProfiles()}

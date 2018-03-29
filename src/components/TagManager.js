@@ -8,7 +8,7 @@ export default class TagManager extends React.Component{
           return (
             <li className='tag' key={i}>
               {tag}
-              <button className="remove-tag" onClick={() => this.props.remove_tag(i)}> delete</button>
+              <button className="remove-tag" onClick={() => this.props.delete_tag(i)}> delete</button>
             </li>
           )
         })}
@@ -18,7 +18,7 @@ export default class TagManager extends React.Component{
 
   handleSubmit(event){
     event.preventDefault();
-    this.props.add_tag(this.refs.tag.value);
+    this.props.create_tag(this.refs.tag.value);
     this.refs.tagForm.reset();
  }
 

@@ -1,10 +1,10 @@
 function tags(state= [], action){
   switch(action.type){
-    case 'ADD_TAG' :
+    case 'CREATE_TAG' :
       return [ ...state,
         action.tag
       ];
-    case 'REMOVE_TAG':
+    case 'DELETE_TAG':
       return [
         ...state.slice(0, action.i),
         ...state.slice(action.i+1)

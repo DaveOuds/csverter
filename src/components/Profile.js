@@ -19,8 +19,8 @@ export default class Profile extends React.Component{
 
         <Notes {...this.props} notes={profile.notes}/>
 
-        <Tags {...this.props} tags={profile.tags}/>
-        
+        <Tags {...this.props} profileTags={profile.tags}/>
+
       </div>
     )
   }
