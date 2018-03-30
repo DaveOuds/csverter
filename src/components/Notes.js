@@ -7,7 +7,7 @@ export default class Notes extends React.Component{
         {this.renderNotes()}
 
       <form ref='noteForm' onSubmit={(evt) => this.handleSubmit(evt)}>
-          <input type="text" ref="note" placeholder="note"/>
+          <input type="text" ref="note" placeholder="Add note..."/>
           <input type="submit" hidden/>
         </form>
       </div>
@@ -40,6 +40,6 @@ export default class Notes extends React.Component{
   handleRemove(i){
     var profile = this.props.profile;
     profile.notes.splice(i, 1);
-    this.props.remove_tag(profile);
+    this.props.remove_note(profile);
   }
 }

@@ -10,6 +10,7 @@ export default class Tags extends React.Component{
         <div  className="selected-tags">
           <ul id='selected-tags-list'>
             {this.props.profileTags.map((tag, i) => {
+              console.log("pf i:\t" +i)
               return(
                 <li className='tag' key={i}>{tag}</li>
               )
@@ -21,10 +22,12 @@ export default class Tags extends React.Component{
           <h3>Available Tags</h3>
 
           {this.props.tags.map((tag, i)=> {
+            console.log("tag i:\t" +i)
+            console.log(this.props.profileTags[i])
             return (
               <div className="tag" key={i}>
-                <input type="checkbox" name="checkbox" id={i} value={tag} onChange={(evt) => this.handleInputChange(evt)}/>
-                <label>{tag}</label>
+                <input type="checkbox" id={i} value={tag} checked={this.props.profileTags[i] === tag }  onChange = { (evt) => this.handleInputChange(evt)}/>
+                <label> {tag} </label>
               </div>
             )
           })}
@@ -34,6 +37,7 @@ export default class Tags extends React.Component{
   }
 
   handleInputChange(evt){
+    console.log(evt.target.checked)
     var profile = this.props.profile;
     if(evt.target.checked){
       profile.tags.push(evt.target.value);

@@ -18,7 +18,16 @@ export default class TagManager extends React.Component{
 
   handleSubmit(event){
     event.preventDefault();
-    this.props.create_tag(this.refs.tag.value);
+    const newTag = this.refs.tag.value;
+
+    for (let i=0; i <this.props.tags.length; i++){
+      if(this.props.tags[i]=== newTag) {
+        alert("Tag already exists");
+        this.refs.tagForm.reset();
+        return;
+      }
+    }
+    this.props.create_tag(newTag);
     this.refs.tagForm.reset();
  }
 
@@ -26,14 +35,14 @@ export default class TagManager extends React.Component{
     return(
       <div className='tags'>
         <div className='existing-tags'>
-          <h2>These are the excisting tags</h2>
+          <h3>These are the excisting tags</h3>
           {this.renderTags()}
         </div>
 
         <div className='create-Tags'>
-          <h2>create your tags</h2>
+          <h3>Create your tags</h3>
           <form ref='tagForm' onSubmit={(evt) => this.handleSubmit(evt)}>
-            <input type="text" ref="tag" placeholder="tag"/>
+            <input type="text" ref="tag" placeholder="Create a tag"/>
             <input type="submit" hidden/>
           </form>
 
