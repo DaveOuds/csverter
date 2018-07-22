@@ -5,21 +5,6 @@ export default class Tags extends React.Component{
     return(
       <div className="profile-tags">
         <h2>Tags</h2>
-
-        <h3>Selected Tags</h3>
-        <div  className="selected-tags">
-          <ul id='selected-tags-list'>
-            {this.props.profileTags.map((tag, i) => {
-              return(
-                <li className='tag' key={i}>{tag}</li>
-              )
-            })}
-          </ul>
-        </div>
-
-        <div className="available-tags">
-          <h3>Available Tags</h3>
-
           {this.props.tags.map((tag, i)=> {
             return (
               <div className="tag" key={i}>
@@ -28,7 +13,6 @@ export default class Tags extends React.Component{
               </div>
             )
           })}
-        </div>
       </div>
     )
   }

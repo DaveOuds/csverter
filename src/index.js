@@ -7,10 +7,12 @@ import Profiles from './components/Profiles'
 import App from './components/App'
 import Upload from './components/Upload'
 import TagManager from './components/TagManager'
+
 //import react router deps
 import { Router, Route, IndexRoute} from 'react-router';
 import { Provider } from 'react-redux';
 import store, { history } from './store';
+import 'bootstrap/dist/css/bootstrap.css'
 
 const router = (
   <Provider store={store}>
