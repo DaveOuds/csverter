@@ -1,4 +1,4 @@
-This web application is build using the React tutorial and is my first React-redux application. The main purpose of this project was to get familiar with the react framework in combination with the redux library. Therefore there is no time spend on the CSS and / or styling of the website.
+This web application was build using the React tutorial and is my first React-redux application. The main purpose of this project was to get familiar with the react framework in combination with the redux library. Therefore there is no time spend on the CSS and / or styling of the website.
 
 React works on the following principles:
 A react application consists of components. Every component stores it's own state. Whenever the state is set (changed) the component rerenders.
