@@ -5,14 +5,8 @@ import Main from './Main';
 
 function mapStateToProps(state) {
   return {
-    email : { firstName :state.firstname,
-              lastName: state.lastName,
-              company: state.company,
-              position: state.position,
-              connectedOn: state.connectedOn,
-              tags: state.tags
-            }
-
+    profiles: state.profiles,
+    tags: state.tags
   }
 }
 
